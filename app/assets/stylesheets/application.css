@@ -23,14 +23,46 @@ background-color: #130e06 !important;
 .navbar-brand {
   color: red !important;
 }
-
-.btn-primary {
+.navbar-toggler {
+background: #f8f9fa;
+}
+#home-container{
+  margin-top: 25px;
+}
+/* .btn-primary {
   background-color: #ff5733 !important;
   border-color: #ff5733 !important;
+} */
+
+/* body {
+  background-color: #f8f9fa;
+} */
+
+.jumbotron {
+ 
+  background-color: #130e06;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 425px;
 }
 
+/* Sticky Footer Classes */
+
+html,
 body {
-  background-color: #f8f9fa;
+  height: 100%;
 }
+
+#page-content {
+  flex: 1 0 auto;
+}
+#sticky-footer {
+  flex-shrink: none;
+ 
+}
+
+/* Other Classes for Page Styling */
+
 
 

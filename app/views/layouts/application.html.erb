@@ -24,13 +24,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-<%= render 'layouts/navigation'%>
+<body class="d-flex flex-column min-vh-100">
+  <%= render 'layouts/navigation' %>
 
- <%= render 'layouts/messages' %>
+  <main class="flex-grow-1">
+    <%= render 'layouts/messages' %>
     <%= yield %>
+  </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384..." crossorigin="anonymous"></script>
+  <%= render 'layouts/footer' %>
 
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384..." crossorigin="anonymous"></script>
+</body>
+
 </html>

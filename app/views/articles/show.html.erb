@@ -1,9 +1,29 @@
-<h1> Showing  Articles Details</h1>
+<div class="container mt-5">
 
-<p>Title </p>
-<p><%= @article.title %></p>
-<p>Description</p>
-<p><%= @article.description %></p>
- <td> <%= link_to 'Edit' , edit_article_path(@article) %></td>
-        <td> <%= link_to 'Delete' , article_path(@article), method: :delete , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %> </td>
- <td> <%= link_to 'Go back ' , articles_path %></td>
+  <h1 class="text-center mt-4">Showing Article Details</h1>
+
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">Title</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= @article.title %></p>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-header">
+      <h5 class="mb-0">Description</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= @article.description %></p>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center gap-3 mt-4">
+    <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-outline-info' %>
+    <%= link_to 'Delete', article_path(@article), method: :delete, data: {turbo_method: :delete ,turbo_confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %>
+    <%= link_to 'Go Back', articles_path, class: 'btn btn-outline-secondary' %>
+  </div>
+
+</div>
