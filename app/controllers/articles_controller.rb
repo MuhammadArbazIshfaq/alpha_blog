@@ -21,7 +21,7 @@ end
 
   def create
       @article = Article.new(article_params)
-    
+    @article.user = User.first # Assuming you want to assign the first user as the author
       if @article.save
       flash[:notice] = 'Article was successfully created.'
       redirect_to @article, notice: 'Article was successfully created.'
