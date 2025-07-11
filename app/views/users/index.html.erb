@@ -2,6 +2,12 @@
 
 <div class="container">
   <div class="row justify-content-md-center">
+    <div class="apple_pagination mb-4">
+    <div class="page_info ">
+      <%= page_entries_info @users %>
+    </div>
+    <%= will_paginate @users, :container => false %>
+  </div>
     <% @users.each do |user| %>
       <div class="col-8 mb-4">
         <div class="card text-center shadow-sm mb-5 bg-white rounded">
@@ -29,5 +35,11 @@
         </div>
       </div>
     <% end %>
+    <div class="apple_pagination mb-4">
+    <div class="page_info">
+      <%= page_entries_info @users %>
+    </div>
+    <%= will_paginate @users, :container => false %>
+  </div>
   </div>
 </div>
