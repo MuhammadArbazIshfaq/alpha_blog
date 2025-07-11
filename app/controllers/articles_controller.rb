@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
  
 before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+ before_action :require_user, except: [ :show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy,:create]
   def show
   end
 
@@ -21,7 +22,7 @@ end
 
   def create
       @article = Article.new(article_params)
-    @article.user = User.first # Assuming you want to assign the first user as the author
+    @article.user = current_user 
       if @article.save
       flash[:notice] = 'Article was successfully created.'
       redirect_to @article, notice: 'Article was successfully created.'
@@ -55,5 +56,11 @@ end
   def set_article
     @article = Article.find(params[:id])
  
+  end
+  def require_same_user
+    if current_user != @article.user 
+      flash[:alert] = "You can only edit or delete your own articles"
+      redirect_to @article
+    end
   end
 end
