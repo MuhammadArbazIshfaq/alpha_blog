@@ -21,6 +21,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def edit
   end
+
   def update
     if @user.update(user_params)
       flash[:success] = "Your account was updated successfully"
@@ -40,7 +41,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
   def destroy
     
     @user.destroy
-    session[:user_id] = nil 
+    session[:user_id] = nil  if @user == current_user
     flash[:success] = "Your account and all associated articles have been deleted"
     redirect_to articles_path
  
@@ -59,8 +60,8 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def require_same_user
    
-    if current_user != @user
-          flash[:danger] = "You can only edit your own account"
+    if current_user != @user && !current_user.admin?
+          flash[:danger] = "You can only edit or delete your own account"
       redirect_to root_path
     end
   end
