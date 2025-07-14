@@ -6,6 +6,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
   def show
+  
   end
 
 
@@ -52,7 +53,7 @@ end
   private
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids:[])
   end
  
   def set_article
