@@ -1,0 +1,16 @@
+<div class="mt-3">
+<% avg = article.average_rating %>
+<p>Rating: <%= avg %></p>
+<% 1.upto(5) do |i| %>
+  <% if i <= avg %>
+    <i class="fa fa-star text-warning"></i>
+  <% elsif (i - 0.5) <= avg %>
+    <i class="fa fa-star-half-o text-warning"></i>
+  <% else %>
+    <i class="fa fa-star text-secondary"></i>
+  <% end %>
+<% end %>
+<span class="text-muted">(<%= article.ratings.count %> ratings)</span>
+
+
+</div>

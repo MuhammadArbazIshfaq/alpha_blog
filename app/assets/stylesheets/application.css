@@ -11,22 +11,20 @@
  *= require_self
  *= require_tree .
  */
- 
+
 .navbar {
-
-background-color: #130e06 !important;
-
+  background-color: #130e06 !important;
 }
-.nav-link{
-    color: #f8f9fa !important;
+.nav-link {
+  color: #f8f9fa !important;
 }
 .navbar-brand {
   color: red !important;
 }
 .navbar-toggler {
-background: #f8f9fa;
+  background: #f8f9fa;
 }
-#home-container{
+#home-container {
   margin-top: 25px;
 }
 /* .btn-primary {
@@ -39,7 +37,6 @@ background: #f8f9fa;
 } */
 
 .jumbotron {
- 
   background-color: #130e06;
   background-position: center;
   background-size: cover;
@@ -59,7 +56,6 @@ body {
 }
 #sticky-footer {
   flex-shrink: none;
- 
 }
 
 /* Other Classes for Page Styling */
@@ -68,27 +64,55 @@ body {
   border: 1px solid #e5e5e5;
   text-align: center;
   padding: 1em;
-  cursor: default; }
-  .apple_pagination a, .apple_pagination span {
-    padding: 0.2em 0.3em; }
-  .apple_pagination .disabled {
-    color: #aaaaaa; }
-  .apple_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
-  .apple_pagination a {
-    text-decoration: none;
-    color: black; }
-    .apple_pagination a:hover, .apple_pagination a:focus {
-      text-decoration: underline; }
+  cursor: default;
+}
+.apple_pagination a,
+.apple_pagination span {
+  padding: 0.2em 0.3em;
+}
+.apple_pagination .disabled {
+  color: #aaaaaa;
+}
+.apple_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+}
+.apple_pagination a {
+  text-decoration: none;
+  color: black;
+}
+.apple_pagination a:hover,
+.apple_pagination a:focus {
+  text-decoration: underline;
+}
 
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
 
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}

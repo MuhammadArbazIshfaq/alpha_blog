@@ -1,0 +1,44 @@
+  <div class="card mt-5">
+    <div class="card-header">
+      <h5 class="mb-0">Comments</h5>
+    </div>
+    <div class="card-body">
+      <% if article.comments.any? %>
+        <% article.comments.each do |comment| %>
+          <div class="border-bottom mb-3 pb-2">
+            <p>
+              <strong><%= comment.user.username %>:</strong>
+              <%= comment.content %>
+            </p>
+            <% if logged_in? && (comment.user == current_user || current_user.admin?) %>
+              <%= link_to "Delete", article_comment_path(article, comment), 
+                          method: :delete, 
+                          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                          class: "btn btn-sm btn-outline-danger" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No comments yet. Be the first to comment!</p>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Add Comment Form -->
+  <% if logged_in? %>
+    <div class="card mt-3">
+      <div class="card-header">
+        <h5 class="mb-0">Add a Comment</h5>
+      </div>
+      <div class="card-body">
+        <%= form_with(model: [article, Comment.new], local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.text_area :content, rows: 3, class: "form-control", placeholder: "Write your comment..." %>
+          </div>
+          <%= form.submit "Post Comment", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <p class="mt-3 text-center">You must <%= link_to "log in", login_path %> to post a comment.</p>
+  <% end %>
